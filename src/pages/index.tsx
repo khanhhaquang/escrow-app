@@ -14,7 +14,7 @@ const Box = (props: any) => {
 			position={[0, 5, 0]}
 			ref={ref}
 		>
-			<sphereBufferGeometry attach='geometry' />
+			<sphereBufferGeometry attach='geometry' args={[5, 32, 16]} />
 			<meshStandardMaterial color='sandybrown' attach='material' />
 		</mesh>
 	);
