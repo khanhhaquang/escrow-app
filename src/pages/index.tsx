@@ -1,16 +1,25 @@
 import { Canvas } from '@react-three/fiber';
+import { OrbitControls, Stars } from '@react-three/drei';
+
+const Box = () => {
+	return (
+		<mesh>
+			<sphereGeometry attach='geometry' />
+			<meshStandardMaterial color='sandybrown' attach='material' />
+		</mesh>
+	);
+};
+
 export default function Home() {
 	return (
-		<main className='flex h-screen p-0'>
+		<main className='w-full h-screen'>
 			<Canvas className='w-full h-full'>
-				<color attach='background' args={['lightblue']} />
-				<ambientLight intensity={0.2} />
-				<directionalLight position={[10, 10, 5]} intensity={1} />
-
-				<mesh>
-					<sphereGeometry args={[1, 2, 2]} attach='geometry' />
-					<meshStandardMaterial color={0xffff00} attach='material' />
-				</mesh>
+				<color attach='background' args={['#000']} />
+				<OrbitControls />
+				<Stars />
+				<ambientLight intensity={0.8} />
+				<spotLight position={[10, 10, 5]} angle={0.2} />
+				<Box />
 			</Canvas>
 		</main>
 	);
